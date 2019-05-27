@@ -153,6 +153,22 @@ if __name__ == "__main__":
         return Response(gen(),
                         mimetype='multipart/x-mixed-replace; boundary=frame')
 
+
+    def source_gen():
+        """Video streaming generator function."""
+        while True:
+            frame = get_next_frame()
+            utils.save_image(frame, "frame.jpeg")
+
+            yield (b'--frame\r\n'
+                b'Content-Type: image/jpeg\r\n\r\n' + open("frame.jpeg", "rb").read() + b'\r\n')
+    
+    @app.route('/source_video_feed')
+    def source_video_feed():
+        return Response(source_gen(),
+                        mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
     app.run(host='0.0.0.0', debug=True)
 
     # start_time = time.time()

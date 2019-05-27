@@ -1,7 +1,104 @@
-<html>
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			console.log("ready!");
+			$("#next").click(function () {
+				jQuery.get("/next_style", function (d) {
+					console.log(d);
+				})
+			})
+
+		})
+	</script>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+	<title>Time Travelling Microscope</title>
+</head>
 
 <body>
-	<img src="{{ url_for('video_feed') }}">
+	<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Time Travelling Microscope</a>
+		<button type="button" id="next" class="btn btn-small btn-primary nav-item pull-right">Next Style</button>
+	</nav> -->
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><strong>Time Travelling Microscope</strong></a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<img src="https://imageog.flaticon.com/icons/png/512/59/59046.png" height="30px" />
+					<strong>
+						@MeMohanty
+					</strong>
+				</li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<button type="button" id="next" class="btn btn-small btn-primary nav-item pull-right">Shuffle
+						Style</button>
+				</li>
+			</ul>
+
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<img src="{{ url_for('video_feed') }}" width="100%">
+			</div>
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<img src="{{ url_for('source_video_feed') }}" width="100%">
+			</div>
+		</div>
+		<div class="row" style="margin-top:20px">
+			<div class="col-sm-2 col-md-2 col-lg-2 " align="center">
+				<img src="https://avatars3.githubusercontent.com/u/44522764?s=400&v=4" height="100px" />
+			</div>
+			<div class="col-sm-2 col-md-2 col-lg-2 " align="center">
+				<img src="https://www.seti.org/sites/default/files/2019-04/aiforgood.jpg" height="100px" />
+			</div>
+			<div class="col-sm-2 col-md-2 col-lg-2 " align="center">
+				<img src="http://addictlab.academy/wp-content/uploads/2017/10/GESSS-logo-1024x693.jpg" height="100px" />
+			</div>
+			<div class="col-sm-2 col-md-2 col-lg-2 " align="center">
+				<img src="https://blog.crashspace.org/wp-content/uploads/2016/12/SFunded-550x205.png" height="100px" />
+			</div>
+			<div class="col-sm-2 col-md-2 col-lg-2 " align="center">
+				<img src="https://actu.epfl.ch/static/upload/fckeditorimage/ba/69/91561aed.jpg" height="100px" />
+			</div>
+		</div>
+
+
+	</div>
+	<!-- <nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><strong>@MeMohanty</strong></a>
+			</div>
+		</div>
+	</nav> -->
+
 </body>
 
 </html>
