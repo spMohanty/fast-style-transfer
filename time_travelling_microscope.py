@@ -15,6 +15,8 @@ import time
 from flask import Flask, render_template, Response
 import cv2
 
+HOST="localhost"
+
 class TimeTravellingMicroscopeTester:
 
     def __init__(self, content_image, model_path):
@@ -91,13 +93,13 @@ class TimeTravellingMicroscopeTester:
 ####
 ## Main
 if __name__ == "__main__":
-    redis_cli = redis.Redis('iccluster091.iccluster.epfl.ch', 6379)
+    redis_cli = redis.Redis(HOST, 6379)
 
     ## Load Model
     
 
     MODELS = ['models/la_muse.ckpt', 'models/rain_princess.ckpt', 'models/shipwreck.ckpt', 'models/the_scream.ckpt', 'models/udnie.ckpt', 'models/wave.ckpt']
-    CURRENT_STYLE = 0
+    CURRENT_STYLE = 1
     style_path = MODELS[CURRENT_STYLE]
 
     transformer = False
